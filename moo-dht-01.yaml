@@ -1,0 +1,17 @@
+substitutions:
+  device_name: moo-dht-01
+  temp_1: Kitchen Temperature
+  humid_1: Kitchen Humidity
+
+packages:
+  dht: !include common/dht.yaml
+
+sensor:
+  - platform: adc
+    pin: A0
+    name: "George Moisture Sensor"
+
+# binary_sensor:
+#   - platform: gpio
+#     pin: 16 #D0 on the NodeMCU
+#     name: "Digital Moisture Sensor"

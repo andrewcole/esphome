@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-hlw8012-03
+  switch_1: Washing Machine
+
+packages:
+  downlight: !include common/hlw8012.yaml

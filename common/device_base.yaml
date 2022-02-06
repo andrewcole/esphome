@@ -1,0 +1,93 @@
+captive_portal:
+
+esphome:
+  name: ${device_name}
+  platform: ${device_platform}
+  board: ${device_board}
+  project:
+    name: "illallangi.moonya"
+    version: "1.0.0"
+
+logger:
+  level: NONE
+  baud_rate: 0
+
+mdns:
+
+mqtt:
+  broker: hass.illallangi.enterprises
+  topic_prefix: esphome/${device_name}
+  discovery: true
+
+ota:
+
+web_server:
+
+wifi:
+  ap:
+    ssid: "${device_name}"
+    password: "0407384998"
+  networks:
+  - ssid: "moonya"
+    password: "0407384998"
+
+switch:
+
+  - id: restart_switch
+    name: ${device_name} Restart
+    platform: restart
+
+text_sensor:
+
+  - platform: wifi_info
+    ip_address:
+      name: ${device_name} IP Address
+    ssid:
+      name: ${device_name} SSID
+    bssid:
+      name: ${device_name} BSSID
+    mac_address:
+      name: ${device_name} MAC Address
+
+  - id: version_sensor
+    name: ${device_name} Firmware Version
+    platform: version
+
+  - id: lwt_sensor
+    name: ${device_name} MQTT Connection Status
+    platform: mqtt_subscribe
+    topic: esphome/${device_name}/status
+    entity_category: diagnostic
+
+
+sensor:
+
+  - name: ${device_name} Device Uptime
+    id: uptime_sensor
+    platform: uptime
+
+  - name: ${device_name} WiFi Signal
+    id: wifi_sensor
+    platform: wifi_signal
+    update_interval: 60s
+
+binary_sensor:
+  - platform: status
+    name: ${device_name} Status
+    entity_category: diagnostic
+
+interval:
+
+  - interval: 1000ms
+    then:
+      - if:
+          condition:
+            for:
+              time: 60s
+              condition:
+                not:
+                  text_sensor.state:
+                    id: lwt_sensor
+                    state: online
+          then:
+            - switch.turn_on: restart_switch

@@ -1,0 +1,7 @@
+substitutions:
+  device_name: moo-shelly1-09
+  sensor_1: Upstairs Landing Light Switch
+  light_1: Upstairs Landing Light
+
+packages:
+  shelly1: !include common/shelly1-light.yaml

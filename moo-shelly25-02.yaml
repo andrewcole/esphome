@@ -1,0 +1,9 @@
+substitutions:
+  device_name: moo-shelly25-02
+  sensor_1: Driveway Light Switch
+  sensor_2: Entrance Light Switch
+  light_1: Driveway Light
+  light_2: Entrance Light
+
+packages:
+  shelly25: !include common/shelly25-light.yaml

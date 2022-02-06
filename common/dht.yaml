@@ -1,0 +1,10 @@
+packages:
+  nodemcu: !include nodemcu.yaml
+
+sensor:
+  - platform: dht
+    pin: 14 #D5 on the NodeMCU
+    temperature:
+      name: "${temp_1}"
+    humidity:
+      name: "${humid_1}"

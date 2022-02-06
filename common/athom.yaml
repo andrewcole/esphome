@@ -1,0 +1,76 @@
+packages:
+  esp8285: !include esp8285.yaml
+
+#api:
+#
+#dashboard_import:
+#  package_import_url: github://athom-tech/athom-configs/athom-rgbct-light.yaml
+
+output:
+- platform: esp8266_pwm
+  pin: GPIO12
+  id: output_g
+- platform: esp8266_pwm
+  pin: GPIO4
+  id: output_r
+- platform: esp8266_pwm
+  pin: GPIO5
+  id: output_w
+- platform: esp8266_pwm
+  pin: GPIO14
+  id: output_b
+- platform: esp8266_pwm
+  pin: GPIO13
+  id: output_ct
+  inverted: true
+
+light:
+- name: ${light_1}
+  id: light_1
+  platform: rgbct
+  color_interlock: true
+  red: output_r
+  green: output_g
+  blue: output_b
+  white_brightness: output_w
+  color_temperature: output_ct
+  cold_white_color_temperature: 153 mireds
+  warm_white_color_temperature: 500 mireds
+  restore_mode: RESTORE_DEFAULT_OFF
+  effects:
+  - lambda:
+      name: Rainbow
+      update_interval: 1s
+      lambda: |-
+        static int state = rand() % 12;
+        auto call = id(light_1).turn_on();
+        call.set_transition_length(1000);
+        if (state == 0) {
+          call.set_rgb(1.0, 0.0, 0.0);
+        } else if (state == 1) {
+          call.set_rgb(1.0, 0.5, 0.0);
+        } else if (state == 2) {
+          call.set_rgb(1.0, 1.0, 0.0);
+        } else if (state == 3) {
+          call.set_rgb(0.5, 1.0, 0.0);
+        } else if (state == 4) {
+          call.set_rgb(0.0, 1.0, 0.0);
+        } else if (state == 5) {
+          call.set_rgb(0.0, 1.0, 0.5);
+        } else if (state == 6) {
+          call.set_rgb(0.0, 1.0, 1.0);
+        } else if (state == 7) {
+          call.set_rgb(0.0, 0.5, 1.0);
+        } else if (state == 8) {
+          call.set_rgb(0.0, 0.0, 1.0);
+        } else if (state == 9) {
+          call.set_rgb(0.5, 0.0, 1.0);
+        } else if (state == 10) {
+          call.set_rgb(1.0, 0.0, 1.0);
+        } else if (state == 11) {
+          call.set_rgb(1.0, 0.0, 0.5);
+        }
+        call.perform();
+        state++;
+        if (state == 12)
+          state = 0;

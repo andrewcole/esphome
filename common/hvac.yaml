@@ -1,0 +1,10 @@
+packages:
+  device_base: !include base.yaml
+
+external_components:
+- source: github://geoffdavis/esphome-mitsubishiheatpump
+
+climate:
+- name: ${hvac_1}
+  id: hvac_1
+  platform: mitsubishi_heatpump

@@ -1,0 +1,17 @@
+substitutions:
+  device_name: moo-dht-04
+  temp_1: Bedroom Temperature
+  humid_1: Bedroom Humidity
+
+packages:
+  dht: !include common/dht.yaml
+
+sensor:
+  - platform: adc
+    pin: A0
+    name: "Gracie Moisture Sensor"
+
+# binary_sensor:
+#   - platform: gpio
+#     pin: 16 #D0 on the NodeMCU
+#     name: "Digital Moisture Sensor"

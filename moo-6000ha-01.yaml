@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-6000ha-01
+  switch_1: Virtual Reality Lighthouses
+
+packages:
+  6000ha: !include common/6000ha.yaml

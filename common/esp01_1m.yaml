@@ -1,0 +1,5 @@
+substitutions:
+  device_board: esp01_1m
+  device_platform: ESP8266
+packages:
+  device_base: !include device_base.yaml

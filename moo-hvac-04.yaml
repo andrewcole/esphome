@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-hvac-04
+  hvac_1: Kitchen Air Conditioner
+
+packages:
+  hvac: !include common/hvac.yaml

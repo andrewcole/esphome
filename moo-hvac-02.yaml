@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-hvac-02
+  hvac_1: Lounge Air Conditioner
+
+packages:
+  hvac: !include common/hvac.yaml

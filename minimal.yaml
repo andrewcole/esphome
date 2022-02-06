@@ -1,0 +1,58 @@
+captive_portal:
+
+esphome:
+  name: esphome
+  board: esp01_1m
+  platform: ESP8266
+  project:
+    name: "illallangi.moonya"
+    version: "1.0.0"
+  name_add_mac_suffix: true
+
+logger:
+
+mdns:
+
+ota:
+
+web_server:
+
+wifi:
+  ap:
+    ssid: "esphome"
+    password: "0407384998"
+  networks:
+  - ssid: "moonya"
+    password: "0407384998"
+
+text_sensor:
+
+  - platform: wifi_info
+    ip_address:
+      name: esphome IP Address
+    ssid:
+      name: esphome SSID
+    bssid:
+      name: esphome BSSID
+    mac_address:
+      name: esphome MAC Address
+
+  - id: version_sensor
+    name: esphome Firmware Version
+    platform: version
+
+sensor:
+
+  - name: esphome Device Uptime
+    id: uptime_sensor
+    platform: uptime
+
+  - name: esphome WiFi Signal
+    id: wifi_sensor
+    platform: wifi_signal
+    update_interval: 60s
+
+binary_sensor:
+  - platform: status
+    name: esphome Status
+    entity_category: diagnostic

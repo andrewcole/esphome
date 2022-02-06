@@ -1,0 +1,46 @@
+packages:
+  device_base: !include base.yaml
+
+# https://www.esphome-devices.com/devices/Brilliant-Lighting-BL20925-Power-Monitoring-Plug
+
+sensor:
+  - platform: hlw8012
+    sel_pin:
+      number: GPIO12
+      inverted: true
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
+    change_mode_every: 3
+    update_interval: 3s
+    current:
+      name: ${switch_1} Current
+      unit_of_measurement: A
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.0
+            - 8.70 -> 8.57
+    voltage:
+      name: ${switch_1} Voltage
+      unit_of_measurement: V
+      filters:
+        - calibrate_linear:
+            # Map 0.0 (from sensor) to 0.0 (true value)
+            - 0.0 -> 0.0
+            - 238.0 -> 221.0
+            - 248.0 -> 230.0
+    power:
+      name: ${switch_1} Power
+      unit_of_measurement: W
+      id: power
+
+switch:
+  - platform: gpio
+    name: ${switch_1}
+    pin: GPIO14
+    id: relay
+    restore_mode: ALWAYS_ON
+                  #RESTORE_DEFAULT_OFF (Default) - Attempt to restore state and default to OFF if not possible to restore. Uses flash write cycles.
+                  #RESTORE_DEFAULT_ON - Attempt to restore state and default to ON. Uses flash write cycles.
+                  #ALWAYS_OFF - Always initialize the pin as OFF on bootup. Does not use flash write cycles.
+                  #ALWAYS_ON - Always initialize the pin as ON on bootup. Does not use flash write cycles.

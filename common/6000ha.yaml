@@ -1,0 +1,50 @@
+packages:
+  device_base: !include base.yaml
+
+# https://www.esphome-devices.com/devices/DETA-Grid-Connect-Smart-Inline-Switch/
+
+output:
+  - platform: esp8266_pwm
+    id: blue_led_output
+    pin:
+      number: GPIO13
+      inverted: True
+
+light:
+  - platform: monochromatic
+    output: blue_led_output
+    id: blue_led
+    internal: True
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO1
+      inverted: True
+    id: button
+    on_press:
+      - switch.toggle: relay_template
+    internal: True
+
+switch:
+  - platform: gpio
+    pin: GPIO14
+    id: relay
+    internal: True
+
+  # tie the led & relay operation together and report status based on relay state
+  - platform: template
+    name: ${switch_1}
+    id: relay_template
+    lambda: |-
+      if (id(relay).state) {
+        return true;
+      } else {
+        return false;
+      }
+    turn_on_action:
+      - light.turn_on: blue_led
+      - switch.turn_on: relay
+    turn_off_action:
+      - light.turn_off: blue_led
+      - switch.turn_off: relay

@@ -1,0 +1,20 @@
+packages:
+  device_base: !include base.yaml
+
+# https://www.esphome-devices.com/devices/Shelly-1
+
+binary_sensor:
+  - name: ${sensor_1}
+    id: sensor_1
+    platform: gpio
+    pin:
+      number: GPIO5
+    entity_category: diagnostic
+
+switch:
+  - name: ${switch_1}
+    id: switch_1
+    platform: gpio
+    pin:
+      number: GPIO4
+    restore_mode: ${restore_1}

@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-downlight-03
+  light_1: Kitchen Downlight 03
+
+packages:
+  downlight: !include common/downlight.yaml

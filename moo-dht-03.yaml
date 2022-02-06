@@ -1,0 +1,7 @@
+substitutions:
+  device_name: moo-dht-03
+  temp_1: Backyard Temperature
+  humid_1: Backyard Humidity
+
+packages:
+  dht: !include common/dht.yaml

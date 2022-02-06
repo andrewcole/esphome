@@ -1,0 +1,39 @@
+substitutions:
+  device_name: moo-hlw8012-01
+  switch_1: Kettle
+
+packages:
+  downlight: !include common/hlw8012.yaml
+
+text_sensor:
+  - platform: template
+    name: ${switch_1} Mode
+    id: mode
+
+interval:
+  - interval: 1000ms
+    then:
+      - if:
+          condition:
+            for:
+              time: 10s
+              condition:
+                sensor.in_range:
+                  id: power
+                  below: 500
+          then:
+            - text_sensor.template.publish:
+                id: mode
+                state: Idle
+      - if:
+          condition:
+            for:
+              time: 10s
+              condition:
+                sensor.in_range:
+                  id: power
+                  above: 500
+          then:
+            - text_sensor.template.publish:
+                id: mode
+                state: Heating

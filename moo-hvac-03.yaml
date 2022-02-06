@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-hvac-03
+  hvac_1: Bedroom Air Conditioner
+
+packages:
+  hvac: !include common/hvac.yaml

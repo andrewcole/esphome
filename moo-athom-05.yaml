@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-athom-05
+  light_1: Bedroom Left Table Light
+
+packages:
+  downlight: !include common/athom.yaml

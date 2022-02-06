@@ -1,0 +1,7 @@
+substitutions:
+  device_name: moo-dht-05
+  temp_1: Laundry Temperature
+  humid_1: Laundry Humidity
+
+packages:
+  dht: !include common/dht.yaml

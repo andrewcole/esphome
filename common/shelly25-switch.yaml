@@ -1,0 +1,74 @@
+packages:
+  device_base: !include base.yaml
+
+# https://www.esphome-devices.com/devices/Shelly-25
+
+i2c:
+  sda: GPIO12
+  scl: GPIO14
+
+sensor:
+  - platform: ade7953
+    irq_pin: GPIO16 # Prevent overheating by setting this
+    voltage:
+      name: ${device_name} Voltage
+    # On the Shelly 2.5 channels are mixed ch1=B ch2=A
+    current_a:
+      name: ${switch_2} Current
+    current_b:
+      name: ${switch_1} Current
+    active_power_a:
+      name: ${switch_2} Active Power
+      # active_power_a is normal, so don't multiply by -1
+    active_power_b:
+      name: ${switch_1} Active Power
+      # active_power_b is inverted, so multiply by -1
+      filters:
+        - multiply: -1
+    update_interval: 60s
+
+  - platform: ntc
+    sensor: temp_resistance_reading
+    name: ${device_name} Temperature
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    icon: "mdi:thermometer"
+    calibration:
+      b_constant: 3350
+      reference_resistance: 10kOhm
+      reference_temperature: 298.15K
+  - platform: resistance
+    id: temp_resistance_reading
+    sensor: temp_analog_reading
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+  - platform: adc
+    id: temp_analog_reading
+    pin: A0
+
+
+binary_sensor:
+  - name: ${sensor_1}
+    id: sensor_1
+    platform: gpio
+    pin:
+      number: GPIO13
+  - name: ${sensor_2}
+    id: sensor_2
+    platform: gpio
+    pin:
+      number: GPIO5
+
+switch:
+  - name: ${switch_1}
+    id: switch_1
+    platform: gpio
+    pin:
+      number: GPIO4
+    restore_mode: ${restore_1}
+  - name: ${switch_2}
+    id: switch_2
+    platform: gpio
+    pin:
+      number: GPIO15
+    restore_mode: ${restore_2}

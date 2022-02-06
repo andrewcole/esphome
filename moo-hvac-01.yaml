@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-hvac-01
+  hvac_1: Office Air Conditioner
+
+packages:
+  hvac: !include common/hvac.yaml

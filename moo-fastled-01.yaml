@@ -1,0 +1,22 @@
+substitutions:
+  device_name: moo-fastled-01
+  num_leds_1: "341"
+  num_leds_2: "114"
+packages:
+  fastled: !include common/fastled.yaml
+
+light:
+- name: Kitchen Nightlight
+  platform: partition
+  segments:
+  - id: light_1
+    from: 0
+    to: 340
+    reversed: true
+  - id: light_2
+    from: 0
+    to: 113
+  restore_mode: RESTORE_DEFAULT_OFF
+  effects:
+  - addressable_rainbow:
+  - addressable_scan:

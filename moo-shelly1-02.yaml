@@ -1,0 +1,7 @@
+substitutions:
+  device_name: moo-shelly1-02
+  sensor_1: Bedroom Light Switch
+  light_1: Bedroom Light
+
+packages:
+  shelly1: !include common/shelly1-light.yaml

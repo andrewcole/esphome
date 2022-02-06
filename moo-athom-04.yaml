@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-athom-04
+  light_1: Lounge Rear Right Table Light
+
+packages:
+  downlight: !include common/athom.yaml
