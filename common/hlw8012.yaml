@@ -1,5 +1,5 @@
 packages:
-  device_base: !include base.yaml
+  device_base: !include esp01_1m.yaml
 
 # https://www.esphome-devices.com/devices/Brilliant-Lighting-BL20925-Power-Monitoring-Plug
 

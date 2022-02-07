@@ -1,5 +1,8 @@
+substitutions:
+  device_board: nodemcuv2
+  device_platform: ESP8266
 packages:
-  esp8285: !include esp01_1m.yaml
+  device_base: !include device_base.yaml
 
 output:
   - id: led_output_1

@@ -1,5 +1,5 @@
 packages:
-  device_base: !include base.yaml
+  device_base: !include nodemcu.yaml
 
 light:
 - id: light_1

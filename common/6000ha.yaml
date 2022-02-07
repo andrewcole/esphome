@@ -1,5 +1,5 @@
 packages:
-  device_base: !include base.yaml
+  device_base: !include esp01_1m.yaml
 
 # https://www.esphome-devices.com/devices/DETA-Grid-Connect-Smart-Inline-Switch/
 
