@@ -11,7 +11,7 @@ sensor:
     cf_pin: GPIO04
     cf1_pin: GPIO05
     change_mode_every: 3
-    update_interval: 3s
+    update_interval: 10s
     current:
       name: ${switch_1} Current
       unit_of_measurement: A

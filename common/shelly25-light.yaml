@@ -25,7 +25,7 @@ sensor:
       # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
-    update_interval: 60s
+    update_interval: 10s
 
   - platform: ntc
     sensor: temp_resistance_reading
@@ -45,7 +45,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: A0
-
+    update_interval: 10s
 
 binary_sensor:
   - name: ${sensor_1}

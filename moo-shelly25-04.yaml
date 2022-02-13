@@ -1,0 +1,8 @@
+packages:
+  shelly25: !include common/shelly25-light.yaml
+substitutions:
+  device_name: moo-shelly25-04
+  sensor_1: Garage Motion Sensor
+  sensor_2: Garage Unused Sensor
+  light_1: Garage Light
+  light_2: Garage Unused

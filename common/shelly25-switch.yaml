@@ -18,14 +18,14 @@ sensor:
     current_b:
       name: ${switch_1} Current
     active_power_a:
-      name: ${switch_2} Active Power
+      name: ${switch_2} Power
       # active_power_a is normal, so don't multiply by -1
     active_power_b:
-      name: ${switch_1} Active Power
+      name: ${switch_1} Power
       # active_power_b is inverted, so multiply by -1
       filters:
         - multiply: -1
-    update_interval: 60s
+    update_interval: 10s
 
   - platform: ntc
     sensor: temp_resistance_reading
@@ -45,7 +45,7 @@ sensor:
   - platform: adc
     id: temp_analog_reading
     pin: A0
-
+    update_interval: 10s
 
 binary_sensor:
   - name: ${sensor_1}

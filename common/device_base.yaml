@@ -65,6 +65,7 @@ sensor:
   - name: ${device_name} Device Uptime
     id: uptime_sensor
     platform: uptime
+    update_interval: 60s
 
   - name: ${device_name} WiFi Signal
     id: wifi_sensor
@@ -78,7 +79,7 @@ binary_sensor:
 
 interval:
 
-  - interval: 1000ms
+  - interval: 1s
     then:
       - if:
           condition:
