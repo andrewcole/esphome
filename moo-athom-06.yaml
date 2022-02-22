@@ -1,6 +1,6 @@
 substitutions:
   device_name: moo-athom-06
-  light_1: Bedroom Right Table Light
+  light_1: Bedroom Tablelight 02
 
 packages:
   downlight: !include common/athom.yaml

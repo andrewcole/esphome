@@ -1,6 +1,6 @@
 substitutions:
   device_name: moo-athom-01
-  light_1: Lounge Front Left Table Light
+  light_1: Lounge Tablelight 01
 
 packages:
   downlight: !include common/athom.yaml

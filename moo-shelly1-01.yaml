@@ -1,8 +1,8 @@
-substitutions:
-  device_name: moo-shelly1-01
-  sensor_1: Kitchen Light Switch 1
-  switch_1: Kitchen Light Power 1
-  restore_1: ALWAYS_ON
-
+---
 packages:
   shelly1: !include common/shelly1-switch.yaml
+substitutions:
+  device_name: moo-shelly1-01
+  restore_1: ALWAYS_ON
+  sensor_1: Kitchen Switch 03
+  switch_1: Kitchen Power 03

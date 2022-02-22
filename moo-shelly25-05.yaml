@@ -1,0 +1,10 @@
+---
+packages:
+  shelly25: !include common/shelly25-switch-light.yaml
+substitutions:
+  device_name: moo-shelly25-05
+  light_2: Laundry Downlight 01
+  restore_1: RESTORE_DEFAULT_OFF
+  sensor_1: Laundry Switch 03
+  sensor_2: Laundry Switch 02
+  switch_1: Laundry Fan 01

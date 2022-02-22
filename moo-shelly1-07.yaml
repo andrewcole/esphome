@@ -1,7 +1,7 @@
-substitutions:
-  device_name: moo-shelly1-07
-  sensor_1: Lounge Light Switch
-  light_1: Lounge Light
-
+---
 packages:
   shelly1: !include common/shelly1-light.yaml
+substitutions:
+  device_name: moo-shelly1-07
+  light_1: Lounge Downlight 01
+  sensor_1: Lounge Switch 01

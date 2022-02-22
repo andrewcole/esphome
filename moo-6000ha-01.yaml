@@ -1,6 +1,23 @@
 substitutions:
   device_name: moo-6000ha-01
-  switch_1: Virtual Reality Lighthouses
+  switch_1: Virtual Reality Lighthouse 01
 
 packages:
   6000ha: !include common/6000ha.yaml
+
+switch:
+- platform: template
+  name: Virtual Reality Lighthouse 02
+  id: switch_2
+  lambda: |-
+    if (id(relay).state) {
+      return true;
+    } else {
+      return false;
+    }
+  turn_on_action:
+    - light.turn_on: blue_led
+    - switch.turn_on: relay
+  turn_off_action:
+    - light.turn_off: blue_led
+    - switch.turn_off: relay

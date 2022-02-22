@@ -1,7 +1,7 @@
-substitutions:
-  device_name: moo-shelly1-06
-  sensor_1: Office Light Switch
-  light_1: Office Light
-
+---
 packages:
   shelly1: !include common/shelly1-light.yaml
+substitutions:
+  device_name: moo-shelly1-06
+  light_1: Office Downlight 01
+  sensor_1: Office Switch 01

@@ -1,9 +1,9 @@
+---
+packages:
+  shelly25: !include common/shelly25-light-light.yaml
 substitutions:
   device_name: moo-shelly25-03
-  sensor_1: Stairwell Light Switch
-  sensor_2: Downstairs Landing Light Switch
-  light_1: Stairwell Light
-  light_2: Downstairs Landing Light
-
-packages:
-  shelly25: !include common/shelly25-light.yaml
+  light_1: Stairwell Nightlight 01
+  light_2: Stairwell Downlight 02
+  sensor_1: Stairwell Switch 02
+  sensor_2: Stairwell Switch 03

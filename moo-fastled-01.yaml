@@ -6,7 +6,7 @@ packages:
   fastled: !include common/fastled.yaml
 
 light:
-- name: Kitchen Nightlight
+- name: Kitchen Nightlight 01
   platform: partition
   segments:
   - id: light_1
