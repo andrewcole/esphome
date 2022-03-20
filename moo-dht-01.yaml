@@ -10,8 +10,3 @@ sensor:
   - platform: adc
     pin: A0
     name: "George Moisture Sensor"
-
-# binary_sensor:
-#   - platform: gpio
-#     pin: 16 #D0 on the NodeMCU
-#     name: "Digital Moisture Sensor"

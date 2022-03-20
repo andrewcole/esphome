@@ -4,15 +4,15 @@ packages:
 light:
 - id: light_1
   internal: true
-  platform: fastled_clockless
-  chipset: WS2811
+  platform: neopixelbus
+  variant: WS2811
   pin: GPIO0
   num_leds: ${num_leds_1}
-  rgb_order: GRB
+  type: GRB
 - id: light_2
   internal: true
-  platform: fastled_clockless
-  chipset: WS2811
+  platform: neopixelbus
+  variant: WS2811
   pin: GPIO2
   num_leds: ${num_leds_2}
-  rgb_order: GRB
+  type: GRB

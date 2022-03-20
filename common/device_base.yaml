@@ -11,29 +11,10 @@ esphome:
   project:
     name: illallangi.moonya
     version: 1.0.0
-interval:
-- interval: 1s
-  then:
-  - if:
-      condition:
-        for:
-          condition:
-            not:
-              text_sensor.state:
-                id: lwt_sensor
-                state: online
-          time: 60s
-      then:
-      - switch.turn_on: restart_switch
-logger:
-  baud_rate: 0
-  level: NONE
-mdns:
 mqtt:
   broker: hass.illallangi.enterprises
   discovery: true
   topic_prefix: esphome/${device_name}
-ota:
 sensor:
 - id: uptime_sensor
   name: ${device_name} Device Uptime
@@ -60,16 +41,13 @@ text_sensor:
 - id: version_sensor
   name: ${device_name} Firmware Version
   platform: version
-- entity_category: diagnostic
-  id: lwt_sensor
-  name: ${device_name} MQTT Connection Status
-  platform: mqtt_subscribe
-  topic: esphome/${device_name}/status
 web_server:
 wifi:
   ap:
     password: 0407384998
     ssid: ${device_name}
+  domain: .alfa.illallangi.enterprises
   networks:
   - password: 0407384998
-    ssid: moonya
+    ssid: moo-iot
+  reboot_timeout: 1min

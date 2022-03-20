@@ -1,40 +1,6 @@
 substitutions:
   device_name: moo-hlw8012-01
-  switch_1: Kettle
+  switch_1: Fridge
 
 packages:
   downlight: !include common/hlw8012.yaml
-
-text_sensor:
-  - platform: template
-    name: ${switch_1} Mode
-    id: mode
-    update_interval: 10s
-
-interval:
-  - interval: 1s
-    then:
-      - if:
-          condition:
-            for:
-              time: 10s
-              condition:
-                sensor.in_range:
-                  id: power
-                  below: 500
-          then:
-            - text_sensor.template.publish:
-                id: mode
-                state: Idle
-      - if:
-          condition:
-            for:
-              time: 10s
-              condition:
-                sensor.in_range:
-                  id: power
-                  above: 500
-          then:
-            - text_sensor.template.publish:
-                id: mode
-                state: Heating

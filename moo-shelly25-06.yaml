@@ -1,0 +1,9 @@
+---
+packages:
+  shelly25: !include common/shelly25-light-light.yaml
+substitutions:
+  device_name: moo-shelly25-06
+  light_1: Office Downlight 01
+  light_2: Office Downlight 02
+  sensor_1: Office Switch 01
+  sensor_2: Office Switch 02

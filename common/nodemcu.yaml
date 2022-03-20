@@ -1,9 +1,12 @@
+---
+logger:
+  baud_rate: 0
+  level: NONE
 substitutions:
   device_board: nodemcuv2
   device_platform: ESP8266
 packages:
   device_base: !include device_base.yaml
-
 output:
   - id: led_output_1
     platform: esp8266_pwm
@@ -13,15 +16,15 @@ output:
     platform: esp8266_pwm
     inverted: true
     pin: 16 #D4 on the NodeMCU
-
-light:
-  - name: "${device_name} LED 1"
-    id: led_1
-    platform: monochromatic
-    output: led_output_1
-    restore_mode: ALWAYS_ON
-  - name: "${device_name} LED 2"
-    id: led_2
-    platform: monochromatic
-    output: led_output_2
-    restore_mode: ALWAYS_ON
+# light:
+#   - name: "${device_name} LED 1"
+#     id: led_1
+#     platform: monochromatic
+#     output: led_output_1
+#     restore_mode: ALWAYS_ON
+#   - name: "${device_name} LED 2"
+#     id: led_2
+#     platform: monochromatic
+#     output: led_output_2
+#     restore_mode: ALWAYS_ON
+ota:
