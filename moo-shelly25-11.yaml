@@ -1,0 +1,9 @@
+---
+packages:
+  shelly25: !include common/shelly25-light-light.yaml
+substitutions:
+  device_name: moo-shelly25-11
+  light_1: Lounge Downlight 01
+  light_2: Lounge Downlight 02
+  sensor_1: Lounge Switch 01
+  sensor_2: Lounge Switch 02

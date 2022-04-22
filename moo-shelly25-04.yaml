@@ -1,7 +1,7 @@
 ---
+packages:
+  shelly25: !include common/shelly25-light-null.yaml
 substitutions:
   device_name: moo-shelly25-04
   light_1: Garage Downlight 01
   sensor_1: Garage Motion 01
-packages:
-  shelly25: !include common/shelly25-light-null.yaml

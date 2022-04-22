@@ -11,10 +11,13 @@ esphome:
   project:
     name: illallangi.moonya
     version: 1.0.0
+  name_add_mac_suffix: false
 mqtt:
-  broker: hass.illallangi.enterprises
+  broker: hass-mqtt.illallangi.enterprises
   discovery: true
   topic_prefix: esphome/${device_name}
+  username: hass
+  password: p*2kVmibNReHD-pUVAqf3AHH7DMuPeFK
 sensor:
 - id: uptime_sensor
   name: ${device_name} Device Uptime

@@ -22,7 +22,7 @@ wifi:
     ssid: "esphome"
     password: "0407384998"
   networks:
-  - ssid: "moonya"
+  - ssid: "moo-iot"
     password: "0407384998"
 
 text_sensor:

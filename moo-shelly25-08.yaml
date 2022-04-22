@@ -1,0 +1,11 @@
+---
+packages:
+  shelly25: !include common/shelly25-switch-switch.yaml
+substitutions:
+  device_name: moo-shelly25-08
+  restore_1: ALWAYS_ON
+  restore_2: ALWAYS_ON
+  sensor_1: Kitchen Switch 03
+  sensor_2: Kitchen Switch 04
+  switch_1: Kitchen Power 03
+  switch_2: Kitchen Power 04

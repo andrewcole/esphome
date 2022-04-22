@@ -1,0 +1,6 @@
+substitutions:
+  device_name: moo-downlight-16
+  light_1: moo-downlight-16
+
+packages:
+  downlight: !include common/dmpl1.yaml

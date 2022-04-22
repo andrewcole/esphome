@@ -1,8 +1,0 @@
----
-packages:
-  shelly1: !include common/shelly1-switch.yaml
-substitutions:
-  device_name: moo-shelly1-09
-  restore_1: ALWAYS_ON
-  sensor_1: Stairwell Switch 01
-  switch_1: moo-pi4-1 Power

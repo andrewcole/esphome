@@ -1,0 +1,9 @@
+---
+packages:
+  shelly25: !include common/shelly25-light-light.yaml
+substitutions:
+  device_name: moo-shelly25-12
+  light_1: Bedroom Downlight 03
+  light_2: Bedroom Downlight 04
+  sensor_1: Bedroom Switch 03
+  sensor_2: Bedroom Switch 04

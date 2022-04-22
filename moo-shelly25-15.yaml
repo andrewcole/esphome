@@ -1,0 +1,11 @@
+---
+packages:
+  shelly25: !include common/shelly25-switch-switch.yaml
+substitutions:
+  device_name: moo-shelly25-15
+  restore_1: RESTORE_DEFAULT_OFF
+  restore_2: ALWAYS_OFF
+  switch_1: Ensuite Fan 01
+  switch_2: Ensuite Fan 02
+  sensor_1: Ensuite Switch 03
+  sensor_2: Ensuite Switch 04

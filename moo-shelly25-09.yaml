@@ -1,0 +1,9 @@
+---
+packages:
+  shelly25: !include common/shelly25-light-light.yaml
+substitutions:
+  device_name: moo-shelly25-09
+  light_1: Backyard Downlight 03
+  light_2: Backyard Downlight 04
+  sensor_1: Kitchen Switch 05
+  sensor_2: Kitchen Switch 06

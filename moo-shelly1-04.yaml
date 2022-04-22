@@ -1,7 +1,0 @@
----
-packages:
-  shelly1: !include common/shelly1-light.yaml
-substitutions:
-  device_name: moo-shelly1-04
-  light_1: Ensuite Downlight 01
-  sensor_1: Ensuite Switch 01

@@ -1,8 +1,0 @@
----
-packages:
-  shelly1: !include common/shelly1-switch.yaml
-substitutions:
-  device_name: moo-shelly1-03
-  restore_1: RESTORE_DEFAULT_OFF
-  sensor_1: Ensuite Switch 03
-  switch_1: Ensuite Fan 01
